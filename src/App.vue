@@ -1,18 +1,11 @@
 <template>
-  <ul>
-    <ResourceItem
-      v-for="res in storedResources"
-      :key="res.id"
-      :title="res.title"
-      :description="res.description"
-      :link="res.link"
-    />
-  </ul>
+  <TheHeader title="Remember Me"/>
+  <StoredResources :storedResources="storedResources"/>
 </template>
 
 <script>
-import ResourceItem from "./components/Resources/ResourceItem.vue";
-
+import StoredResources from "./components/Resources/StoredResources";
+import TheHeader from "./components/layouts/TheHeader.vue";
 export default {
   name: "App",
   data: () => ({
@@ -32,15 +25,17 @@ export default {
     ],
   }),
   components: {
-    ResourceItem,
+    StoredResources,
+    TheHeader
   },
 };
 </script>
 
-<style>
-#app {
+<style scoped>
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 </style>
