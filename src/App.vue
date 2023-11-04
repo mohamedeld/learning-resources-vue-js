@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ul>
+    <ResourceItem
+      v-for="res in storedResources"
+      :key="res.id"
+      :title="res.title"
+      :description="res.description"
+      :link="res.link"
+    />
+  </ul>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ResourceItem from "./components/Resources/ResourceItem.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data: () => ({
+    storedResources: [
+      {
+        id: "official-guide",
+        title: "Official Guide",
+        description: "This is official guide for vuejs",
+        link: "https://www.vuejs.org/",
+      },
+      {
+        id: "google",
+        title: "Google",
+        description: "Just google",
+        link: "https://www.google.com/",
+      },
+    ],
+  }),
   components: {
-    HelloWorld
-  }
-}
+    ResourceItem,
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 </style>
